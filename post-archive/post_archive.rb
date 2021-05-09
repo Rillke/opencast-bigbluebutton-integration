@@ -13,7 +13,7 @@ require_relative 'oc_modules/oc_util'
 
 # Server URL
 # oc_server = 'https://develop.opencast.org'
-$oc_server = 'http://my-opencast.org'
+$oc_server = 'https://staging-admin.opencast.uni-halle.de'
 
 # User credentials allowed to ingest via HTTP basic
 # oc_user = 'username'
@@ -48,11 +48,11 @@ $addWebcamTracks = true
 
 # Adds the shared notes etherpad from a meeting to the attachments in Opencast
 # Suggested default: false
-$sendSharedNotesEtherpadAsAttachment = false
+$sendSharedNotesEtherpadAsAttachment = true
 
 # Adds the public chat from a meeting to the attachments in Opencast as a subtitle file
 # Suggested default: false
-$sendChatAsSubtitleAttachment = false
+$sendChatAsSubtitleAttachment = true
 
 # Default roles for the event, e.g. "ROLE_OAUTH_USER, ROLE_USER_BOB"
 # Suggested default: ""
@@ -75,7 +75,7 @@ $passIdentifierAsDcSource = false
 
 # Flow control booleans
 # Suggested default: false
-$onlyIngestIfRecordButtonWasPressed = false
+$onlyIngestIfRecordButtonWasPressed = true
 
 # If a converted video already exists, don't overwrite it
 # This can save time when having to run this script on the same input multiple times
@@ -748,7 +748,7 @@ if ($sendChatAsSubtitleAttachment && File.file?(CHAT_PATH))
   mediapackage = OcUtil::requestIngestAPI($oc_server, $oc_user, $oc_password,
                   :post, '/ingest/addAttachment', DEFAULT_REQUEST_TIMEOUT,
                   {:mediaPackage => mediapackage,
-                  :flavor => "captions/vtt+en",
+                  :flavor => "captions/vtt+de",
                   :body => File.open(CHAT_PATH, 'rb') })
   BigBlueButton.logger.info( "Mediapackage: \n" + mediapackage)
 else
