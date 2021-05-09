@@ -56,7 +56,7 @@ $sendChatAsSubtitleAttachment = true
 
 # Adds the presentations from a meeting to the attachments in Opencast as PDF files
 # Suggested default: false
-$sendPresentationsAsPdf = false
+$sendPresentationsAsPdf = true
 
 # Default roles for the event, e.g. "ROLE_OAUTH_USER, ROLE_USER_BOB"
 # Suggested default: ""
