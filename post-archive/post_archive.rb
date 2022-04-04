@@ -741,7 +741,7 @@ if ($config.dig(:addFiles, :chatAsSubtitleAttachment) && File.file?(CHAT_PATH))
   mediapackage = OcUtil::requestIngestAPI($config.dig(:opencast, :server), $config.dig(:opencast, :user), $config.dig(:opencast, :password),
                   :post, '/ingest/addAttachment', DEFAULT_REQUEST_TIMEOUT,
                   {:mediaPackage => mediapackage,
-                  :flavor => "captions/vtt+en",
+                  :flavor => "captions/vtt+de",
                   :body => File.open(CHAT_PATH, 'rb') })
   BigBlueButton.logger.info( "Mediapackage: \n" + mediapackage)
 else
